@@ -1,0 +1,23 @@
+class Solution:
+    def numberOfArrays(self, differences, lower, upper):
+        min_offset = 0
+        max_offset = 0
+        curr = 0
+
+        for diff in differences:
+            curr += diff
+            min_offset = min(min_offset, curr)
+            max_offset = max(max_offset, curr)
+
+        min_x = lower - min_offset
+        max_x = upper - max_offset
+
+        return max(0, max_x - min_x + 1)
+
+param_1 = [1, -3, 4]
+param_2 = 1
+param_3 = 6
+
+ret = Solution().numberOfArrays(param_1, param_2, param_3)
+
+print(ret)
